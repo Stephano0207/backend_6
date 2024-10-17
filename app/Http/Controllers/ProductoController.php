@@ -58,7 +58,8 @@ class ProductoController extends Controller
      */
     public function show(string $id)
     {
-        return Productos::find($id);
+        $producto=Productos::find($id);
+        return response()->json($producto,200);
     }
 
     /**
@@ -84,6 +85,7 @@ class ProductoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+       Productos::destroy($id);
+        return response()->json(["mensaje"=>"Eliminado"],200);
     }
 }
